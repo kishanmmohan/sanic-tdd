@@ -10,12 +10,15 @@ uvicorn = "*"
 sanic-ext = "*"
 pydantic = "*"
 aerich = "*"
+celery = "*"
+flower = "*"
 
 [dev-packages]
 sanic-testing = "*"
 pytest = "*"
 pre-commit = "*"
 pytest-cov = "*"
+pytest-xdist = "*"
 
 [requires]
 python_version = "3.10"
