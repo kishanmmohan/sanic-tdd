@@ -1,0 +1,6 @@
+[tool.ruff]
+fix-only = true
+lint.select = ["ANN", "B", "DJ", "E", "F", "I", "N", "UP"]
+
+[tool.bandit]
+exclude_dirs = [".secrets/", ".venv/", "logs", "docs"]
