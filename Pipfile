@@ -12,6 +12,8 @@ pydantic = "*"
 aerich = "*"
 celery = "*"
 flower = "*"
+sentry-sdk = {extras = ["sanic"], version = "*"}
+redis = "*"
 
 [dev-packages]
 sanic-testing = "*"

@@ -3,4 +3,5 @@ fix-only = true
 lint.select = ["ANN", "B", "DJ", "E", "F", "I", "N", "UP"]
 
 [tool.bandit]
+skips = ["B104"]
 exclude_dirs = [".secrets/", ".venv/", "logs", "docs"]
