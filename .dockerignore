@@ -1,0 +1,12 @@
+.venv
+.github
+.gitignore
+.secrets
+docs/
+logs/
+.env.example
+.pre-commit-config.yaml
+.python-version
+Pipfile
+Pipfile.lock
+README.md
