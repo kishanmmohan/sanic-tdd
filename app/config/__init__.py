@@ -1,4 +1,3 @@
-import importlib
 import os
 
 from sanic.config import Config
@@ -7,16 +6,11 @@ from app.config.environments.development import DevelopmentConfig
 from app.config.environments.production import ProductionConfig
 from app.config.environments.testing import TestingConfig
 
-config_path = os.getenv("SANIC_CONFIG_MODULE", "app.config.environments.development")
-config_module = importlib.import_module(config_path)
-
 config = Config()
-
 
 def load_config():
     """Load configuration based on environment."""
-    env = os.getenv('FLASK_ENV', 'development').lower()
-    print(env)
+    env = os.getenv('ENVIRONMENT', 'development').lower()
     if env == 'development':
         config_class = DevelopmentConfig
     elif env == 'testing':

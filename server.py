@@ -1,8 +1,6 @@
 from app.config import config
 from main import create_app
 
-print(config["DEBUG"])
-
 app = create_app(config)
 
 if __name__ == "__main__":

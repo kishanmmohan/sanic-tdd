@@ -62,6 +62,7 @@ LOGGING_CONFIG = {
 def create_app(configs) -> Sanic:
     app = Sanic("products-app", log_config=LOGGING_CONFIG)
     app.config.update(configs)
+    print(app.config.ENVIRONMENT)
     Extend(app)
 
     if app.config["ENVIRONMENT"] != "development":
