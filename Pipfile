@@ -22,6 +22,7 @@ pre-commit = "*"
 pytest-cov = "*"
 pytest-xdist = "*"
 pytest-asyncio = "*"
+pytest-env = "*"
 
 [requires]
 python_version = "3.10"
