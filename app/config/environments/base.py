@@ -9,7 +9,7 @@ class BaseConfig:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     HOST = "0.0.0.0"
     PORT = 8000
-    WORKERS_COUNT = 1
+    WORKERS_COUNT = 4
 
     LOGGING_CONFIG = {
     'version': 1,

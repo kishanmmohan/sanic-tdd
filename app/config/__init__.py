@@ -30,3 +30,5 @@ def load_config():
 
 vars = load_config()
 config.update_config(vars)
+config.HEALTH = True
+config.HEALTH_ENDPOINT = True

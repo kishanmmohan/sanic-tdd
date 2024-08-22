@@ -23,8 +23,8 @@ def create_app(configs) -> Sanic:
             integrations=[AsyncioIntegration()],
         )
 
-    @app.route('/health')
-    async def health_check(request):
+    @app.route('/uptime')
+    async def uptime_check(request):
         return response.json({"status": "ok", "environment":app.config.ENVIRONMENT})
 
     return app
