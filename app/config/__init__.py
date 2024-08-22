@@ -4,6 +4,7 @@ from sanic.config import Config
 
 from app.config.environments.development import DevelopmentConfig
 from app.config.environments.production import ProductionConfig
+from app.config.environments.staging import StagingConfig
 from app.config.environments.testing import TestingConfig
 
 config = Config()
@@ -13,6 +14,8 @@ def load_config():
     env = os.getenv('ENVIRONMENT', 'development').lower()
     if env == 'development':
         config_class = DevelopmentConfig
+    elif env == 'staging':
+        config_class = StagingConfig
     elif env == 'testing':
         config_class = TestingConfig
     elif env == 'production':
