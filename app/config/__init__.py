@@ -16,7 +16,7 @@ config = Config()
 def load_config():
     """Load configuration based on environment."""
     env = os.getenv('FLASK_ENV', 'development').lower()
-
+    print(env)
     if env == 'development':
         config_class = DevelopmentConfig
     elif env == 'testing':
