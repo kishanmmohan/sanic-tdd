@@ -1,5 +1,4 @@
 
-import datetime
 
 import sentry_sdk
 from sanic import Sanic, response
@@ -46,7 +45,6 @@ def create_app(configs) -> Sanic:
         return response.json(
             {
                 "status": "ok",
-                "sys_time": str(datetime.datetime.now()),
                 "environment":app.config.ENVIRONMENT
             }
         )
