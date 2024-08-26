@@ -1,7 +1,7 @@
 
 
 import sentry_sdk
-from sanic import Sanic, response
+from sanic import Blueprint, Sanic, response
 from sanic_ext import Extend, openapi
 from sentry_sdk.integrations.asyncio import AsyncioIntegration
 from tortoise import Tortoise
@@ -48,4 +48,12 @@ def create_app(configs) -> Sanic:
                 "environment":app.config.ENVIRONMENT
             }
         )
+
+    from app.components.product.http import products
+    group = Blueprint.group(
+        products,
+        version_prefix="/api/v",
+        version=1,
+    )
+    app.blueprint(group)
     return app

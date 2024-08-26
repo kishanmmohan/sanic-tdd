@@ -3,7 +3,7 @@ import os
 from tortoise.contrib.sanic import register_tortoise
 
 APPS_MODELS = [
-    "app.services.product.models"
+    "app.components.product.models"
 ]
 
 TORTOISE_ORM = {
