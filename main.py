@@ -3,8 +3,21 @@ import sentry_sdk
 from sanic import Sanic, response
 from sanic_ext import Extend
 from sentry_sdk.integrations.asyncio import AsyncioIntegration
+from tortoise import Tortoise
+
+from app.backends.postgres import APPS_MODELS, connect_database
 
 
+def initialize_orm(func):
+    def wrapped(*args, **kwargs):
+        Tortoise.init_models(APPS_MODELS, "models")
+        app = func(*args, **kwargs)
+        connect_database(app)
+        return app
+
+    return wrapped
+
+@initialize_orm
 def create_app(configs) -> Sanic:
     app = Sanic("products-app", log_config=configs.LOGGING_CONFIG)
     app.config.update(configs)
@@ -22,6 +35,8 @@ def create_app(configs) -> Sanic:
             profiles_sample_rate=1.0,
             integrations=[AsyncioIntegration()],
         )
+
+
 
     @app.route('/uptime')
     async def uptime_check(request):

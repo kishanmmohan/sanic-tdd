@@ -2,8 +2,6 @@ import os
 
 from tortoise.contrib.sanic import register_tortoise
 
-from server import app
-
 APPS_MODELS = [
     "app.services.product.models"
 ]
@@ -11,7 +9,7 @@ APPS_MODELS = [
 TORTOISE_ORM = {
     "connections": {
         "default": {
-            "engine": "tortoise.backends.postgresql",
+            "engine": "tortoise.backends.asyncpg",
             "credentials": {
                 "database": os.getenv("POSTGRES_DATABASE"),
                 "host": os.getenv("POSTGRES_HOST"),
@@ -29,9 +27,10 @@ TORTOISE_ORM = {
     },
 }
 
-register_tortoise(
-    app,
-    config=TORTOISE_ORM,
-    generate_schemas=True,
-    add_exception_handlers=True,
-)
+
+def connect_database(app) -> None:
+    register_tortoise(
+        app,
+        config=TORTOISE_ORM,
+        generate_schemas=True,
+    )
