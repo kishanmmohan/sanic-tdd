@@ -15,7 +15,6 @@ flower = "*"
 sentry-sdk = {extras = ["sanic"], version = "*"}
 redis = "*"
 asyncpg = "*"
-sanic-openapi = "*"
 
 [dev-packages]
 sanic-testing = "*"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5a3b82fbfa8ef1d69eb3d26b2bfd5f3439aa7acd702e412daab8a98fd3b3ff5f"
+            "sha256": "0a6233988dca90c383e944fd58fd8541011dbb73160607c98c97aa5d6a0f0e37"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -668,14 +668,6 @@
             "index": "pypi",
             "version": "==23.12.0"
         },
-        "sanic-openapi": {
-            "hashes": [
-                "sha256:35412cf7c59777c0c6af60967890d30386be40395f69dc50ae88859e9143f484",
-                "sha256:7cda62234d08c965f739eaac6b059e8f244d87061d97335c57287fd6ae16bf52"
-            ],
-            "index": "pypi",
-            "version": "==21.12.0"
-        },
         "sanic-routing": {
             "hashes": [
                 "sha256:1558a72afcb9046ed3134a5edae02fc1552cff08f0fff2e8d5de0877ea43ed73",
@@ -758,7 +750,7 @@
                 "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d",
                 "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
             ],
-            "markers": "python_version < '3.11'",
+            "markers": "python_version >= '3.8'",
             "version": "==4.12.2"
         },
         "tzdata": {
@@ -1374,7 +1366,7 @@
                 "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d",
                 "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
             ],
-            "markers": "python_version < '3.11'",
+            "markers": "python_version >= '3.8'",
             "version": "==4.12.2"
         },
         "virtualenv": {

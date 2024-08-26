@@ -1,7 +1,9 @@
 
+import datetime
+
 import sentry_sdk
 from sanic import Sanic, response
-from sanic_ext import Extend
+from sanic_ext import Extend, openapi
 from sentry_sdk.integrations.asyncio import AsyncioIntegration
 from tortoise import Tortoise
 
@@ -21,6 +23,7 @@ def initialize_orm(func):
 def create_app(configs) -> Sanic:
     app = Sanic("products-app", log_config=configs.LOGGING_CONFIG)
     app.config.update(configs)
+
     Extend(app)
 
     if app.config.ENVIRONMENT == "production":
@@ -36,10 +39,15 @@ def create_app(configs) -> Sanic:
             integrations=[AsyncioIntegration()],
         )
 
-
-
+    @openapi.tag("Utility")
+    @openapi.summary("Uptime Check")
     @app.route('/uptime')
     async def uptime_check(request):
-        return response.json({"status": "ok", "environment":app.config.ENVIRONMENT})
-
+        return response.json(
+            {
+                "status": "ok",
+                "sys_time": str(datetime.datetime.now()),
+                "environment":app.config.ENVIRONMENT
+            }
+        )
     return app
